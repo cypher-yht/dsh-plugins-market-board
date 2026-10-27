@@ -1,0 +1,56 @@
+{
+  "name": "dsh-market-board",
+  "version": "0.2.0",
+  "private": true,
+  "description": "在「插件」页新增插件市场标签页：浏览、搜索社区 DeepSeek Harness 插件并一键安装。",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./market-source": "./market-source.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "market-source.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin-market",
+    "marketplace",
+    "registry"
+  ],
+  "author": "cypher-yht",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypher-yht/dsh-plugins-market-board.git"
+  },
+  "homepage": "https://github.com/cypher-yht/dsh-plugins-market-board#readme",
+  "bugs": {
+    "url": "https://github.com/cypher-yht/dsh-plugins-market-board/issues"
+  },
+  "scripts": {
+    "test": "node --test test/client.test.mjs test/market-source.test.mjs test/host.test.mjs"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  }
+}
